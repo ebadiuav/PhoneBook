@@ -1,0 +1,115 @@
+﻿@model CodeFirst.Models.Person
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phoneNumber" class="control-label"></label>
+                <input asp-for="phoneNumber" class="form-control" />
+                <span asp-validation-for="phoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDay" class="control-label"></label>
+                <input asp-for="BirthDay" class="form-control" />
+                <span asp-validation-for="BirthDay" class="text-danger"></span>
+            </div>
+        
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr/>
+ <div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Phonebook</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .container {
+                max-width: 600px;
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="text-center">دفتر تلفن</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">نام:</label>
+                    <input type="text" class="form-control" id="name" placeholder="نام مخاطب">
+                </div>
+                <div class="form-group">
+                    <label for="mobile">شماره همراه:</label>
+                    <input type="text" class="form-control" id="mobile" placeholder="شماره همراه مخاطب">
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">تاریخ تولد:</label>
+                    <input type="date" class="form-control" id="birthdate">
+                </div>
+                <div class="form-group">
+                    <label for="image">تصویر:</label>
+                    <input type="file" class="form-control-file" id="image">
+                </div>
+                <button type="submit" class="btn btn-primary">افزودن مخاطب</button>
+            </form>
+
+            <hr>
+
+            <h3 class="text-center">جستجو</h3>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="جستجو بر اساس نام">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">جستجو</button>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- جدول نمایش مخاطبین -->
+            <h3 class="text-center">لیست مخاطبین</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> @Html.DisplayNameFor(model => model.name)</th>
+                        <th>@Html.DisplayNameFor(model => model.phoneNumber)</th>
+                        <th>@Html.DisplayNameFor(model => model.BirthDay)</th>
+                        <th>تصویر</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ردیف‌های جدول به صورت دینامیک ایجاد می‌شود -->
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+
+ </div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
