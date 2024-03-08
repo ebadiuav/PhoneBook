@@ -81,7 +81,7 @@ namespace CodeFirst.Controllers
                 _context.Add(person);
                 await _context.SaveChangesAsync();
 
-                return View(person);
+                return View(model);
 
             }
             return RedirectToAction("Index");
